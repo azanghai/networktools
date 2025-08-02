@@ -235,10 +235,15 @@ plot.bridge <- function(x, order=c("given","alphabetical", "value"), zscore=FALS
         ggplot2::theme(axis.text.y = ggplot2::element_text(colour=cols[order(temp_Long_orig$value)]))
     }
     if(length(include)==1){g <- gridExtra::grid.arrange(glist[[1]])
+                           return(glist[[1]]) # return ggplot object
     } else if(length(include)==2){gridExtra::grid.arrange(glist[[1]],glist[[2]], ncol=2)
+                                  return(glist)  # return list of ggplot objects
     } else if(length(include)==3){gridExtra::grid.arrange(glist[[1]],glist[[2]],glist[[3]], ncol=3)
+                                  return(glist)  # return list of ggplot objects
     } else if(length(include)==4){gridExtra::grid.arrange(glist[[1]],glist[[2]],glist[[3]],glist[[4]], ncol=4)
+                                  return(glist)  # return list of ggplot objects
     } else if(length(include)==5){gridExtra::grid.arrange(glist[[1]],glist[[2]],glist[[3]],glist[[4]],glist[[5]], ncol=5)
+                                  return(glist)  # return list of ggplot objects
     }
   }
   if(order[1]!="value") { # if "value", plotting is already done with gridExtra (552-557)
